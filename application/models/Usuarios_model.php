@@ -19,6 +19,11 @@ class Usuarios_model extends CI_Model{
             $usuario =$this->db->get("usuarios_tb")->row_array();
             return $usuario;
         }
+        
+        public function verificarUsuario($matricula){
+            $this->db->where("matricula", $matricula);
+            return $this->db->get('usuarios_tb')->row_array();
+    }
 
     public function listarFuncionarios(){
 

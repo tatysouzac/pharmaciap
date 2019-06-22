@@ -30,13 +30,21 @@ class cadastrar_usuarios extends CI_Controller {
                         "matricula" => $this->input->post("matricula"),
                         "senha" => md5($this->input->post("senha")),
                 );
+
                 $this->load->model("usuarios_model");
+
+                if(!$this->usuarios_model->verificarUsuario($usuario['matricula'])){
                 //inserindo no banco o cadastro usuarios
                 $this->usuarios_model->cadastra_usuario($usuario);
                 //inserindo mensagem
                 $this->session->set_flashdata("success", "usuario cadastrado com sucesso");
                 //após o cadastro a página retorna para esse tela"cadastra_usuarios"
-                 header('Location: http://localhost/pharmaciap/cadastrar-usuarios');
+                redirect('cadastrar-usuarios');
+                }
+                else{
+                        $this->session->set_flashdata("danger", "usuario já cadastrado");
+                        redirect('cadastrar-usuarios');
+                }
+        }
 
         }
-}

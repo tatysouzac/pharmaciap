@@ -48,9 +48,25 @@ class Produtos_model extends CI_Model{
 
 }
 
-function excluir($id){
+        public function excluir($id){
             $this->db->set('status', 0);
             $this->db->where('id', $id);
             $this->db->update('produtos_tb');     
+    }
+
+        public function pegarProduto($id){
+        $this->db->where('id', $id);
+        return $this->db->get("produtos_tb")->result_array();
+
+    }
+
+        function editarProduto($enviar){
+        
+        $array = array('nome' => $enviar['nome'],
+            'preco' => $enviar['preco'] );
+            
+            $this->db->set($array);
+            $this->db->where('id', $enviar['id']);
+            $this->db->update('produtos_tb', $array);     
     }
 }

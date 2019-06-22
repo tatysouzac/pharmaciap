@@ -21,7 +21,7 @@
                             <input required type="password" name="senha" id="senha" class="form-control">
                         </div>
 
-                        <button type="submit" class="btn btn-danger">Login</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
             </div>

@@ -19,13 +19,10 @@
                     <a class="nav-link" href="produtos" style="color: #333333">Produtos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="categorias" style="color: #333333">Categorias</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="contato" style="color: #333333">Contato</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="funcionarios" style="color: #333333">Funcionarios</a>
+                    <a class="nav-link" href="funcionarios" style="color: #333333">Funcionários</a>
                 </li>
             </ul>
 

@@ -20,11 +20,11 @@
         
             <?php if($this->session->flashdata("success")) : ?>
                 <p class="alert alert-success"><?= $this->session->flashdata("success") ?></p>
-            <?php endif ?>
+            <?php endif; ?>
 
             <?php if($this->session->flashdata("danger")) : ?>
                 <p class="alert alert-danger"><?= $this->session->flashdata("danger") ?></p>
-            <?php endif ?>
+            <?php endif; ?>
 
         </div>
 
@@ -39,13 +39,16 @@
                     <a href="produtos/visualizar/<?= $produto['id']."/".$novoNome ?>"><?= $produto['nome'] ?></a>
                 </br>
             </br>
+            <?php if($this->session->userdata("usuario_logado")) : ?>
                     <a href="produtos/excluir/<?= $produto['id'] ?>">
                     <input type="button" name="excluir" value="excluir" class="btn btn-danger">
 
                 </a>
-                <a href="#">
+                <a href="produtos/editar/<?= $produto['id'] ?>">
                     <input type="button" name="editar" value="editar" class="btn btn-primary">
                 </a>
+                <?php endif; ?>
+
                 </div>
                 <?php endforeach ?>
                 <!-- COL 6 // COL 6 // COL 6 // COL 6 // COL 6 // COL 6 //  -->

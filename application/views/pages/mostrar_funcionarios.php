@@ -7,7 +7,7 @@
         <div class="contato-titulo">
             <div class="row clearfix">
                 <div class="col-md-6">
-                    <h1>Produtos</h1>
+                    <h1>Funcionários</h1>
                 </div>
                 <?php if($this->session->userdata("usuario_logado")) : ?>
                 <div class="col-md-6">
@@ -36,8 +36,9 @@
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
       <th scope="col">Matricula</th>
+      <?php if($this->session->userdata("usuario_logado")) : ?>
       <th scope="col">Senha</th>
-      <th scope="col">OPÇOES</th>
+      <?php endif; ?>
     </tr>
   </thead>
   <tbody>
@@ -48,7 +49,9 @@
       <td><?= $funcionario['nome'] ?></td>
       <td><?= $funcionario['email'] ?></td>
       <td><?= $funcionario['matricula'] ?></td>
+       <?php if($this->session->userdata("usuario_logado")) : ?>
       <td><?= $funcionario['senha'] ?></td>
+                     
       <td>
         <a href="funcionarios/excluir/<?= $funcionario['id'] ?>">
             <input type="button" name="excluir" value="excluir" class="btn btn-danger">
@@ -57,6 +60,7 @@
              <input type="button" name="editar" value="editar" class="btn btn-primary">
         </a>
     </td>
+    <?php endif; ?>
     </tr>
     <?php endforeach ?>
   </tbody>

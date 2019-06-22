@@ -19,22 +19,22 @@
                 <form action="cadastrar_usuarios/novo" method="post">
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" class="form-control">
+                        <input required type="text" name="nome" id="nome" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control">
+                        <input required type="text" name="email" id="email" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="matricula">Matricula</label>
-                        <input type="text" name="matricula" id="matricula" class="form-control">
+                        <input  required type="text" name="matricula" id="matricula" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="senha">Senha</label>
-                        <input type="password" name="senha" id="senha" class="form-control">
+                        <input required type="password" name="senha" id="senha" class="form-control">
                     </div>
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>

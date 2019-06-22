@@ -50,12 +50,22 @@ class funcionarios extends CI_Controller {
 			$nome = $_POST["nome"];
 			$email= $_POST["email"];
 			$matricula = $_POST["matricula"];
-			$senha = $_POST["senha_cliente"];
+			$senha = md5($_POST["senha"]);
 
 			$this->load->model("Usuarios_model");
-			$this->Usuarios_model->editarCliente($_POST);
-			header('Location: http://localhost/pharmaciap/funcionarios');
 
+                if(!$this->Usuarios_model->verificarUsuario($_POST['matricula'])){
+                
+                $this->Usuarios_model->editarCliente($_POST);
+
+                $this->session->set_flashdata("success", "Alteraçao realizada com sucesso");
+                
+               header('Location: http://localhost/pharmaciap/funcionarios/editar');
+                }
+                else{
+                        $this->session->set_flashdata("danger", "Matricula ja esta sendo utilizada!");
+                        header('Location: http://localhost/pharmaciap/funcionarios/editar');
+                }
 		}
 
 

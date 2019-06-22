@@ -48,4 +48,36 @@ class Produtos extends CI_Controller {
                 $this->produtos_model->excluir($id);
                 header('Location: http://localhost/pharmaciap/produtos');
         }
+
+        public function editar($id){
+        
+        $this->load->model("Produtos_model");
+        $result = $this->Produtos_model->pegarProduto($id);
+
+
+            $id = $result[0]['id'];
+            $nome= $result[0]['nome'];
+            $preco= $result[0]['preco'];
+
+
+            $dados = array( 'id' => $id,'nome' => $nome, 'preco' => $preco);
+        
+        $this->load->view('templates/header', $dados);
+        $this->load->view('templates/nav-top', $dados);
+        $this->load->view('pages/editar_produtos', $dados);
+        $this->load->view('templates/footer', $dados);
+        $this->load->view('templates/js', $dados);
+    }
+
+        public function enviar_editar(){
+
+            $id =$_POST["id"];
+            $nome = $_POST["nome"];
+            $preco= $_POST["preco"];
+
+            $this->load->model("Produtos_model");
+            $this->Produtos_model->editarProduto($_POST);
+            header('Location: http://localhost/pharmaciap/produtos');
+
+        }
 }
